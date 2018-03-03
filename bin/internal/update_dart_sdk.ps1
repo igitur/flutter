@@ -44,7 +44,7 @@ if (Test-Path $dartSdkPath) {
 New-Item $dartSdkPath -force -type directory | Out-Null
 $dartSdkZip = "$cachePath\$dartZipName"
 Import-Module BitsTransfer
-Start-BitsTransfer -Source $dartSdkUrl -Destination $dartSdkZip
+Start-BitsTransfer -Source $dartSdkUrl -Destination $dartSdkZip -ProxyUsage SystemDefault -UseStoredCredential Proxy 
 
 Write-Host "Unzipping Dart SDK..."
 If (Get-Command 7z -errorAction SilentlyContinue) {
